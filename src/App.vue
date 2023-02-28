@@ -1,6 +1,6 @@
 <script setup>
-import { RouterView } from 'vue-router'
-import TodoHeader from './components/TodoHeader.vue';
+import { RouterView } from "vue-router";
+import TodoHeader from "./components/TodoHeader.vue";
 </script>
 
 <template>
@@ -17,9 +17,11 @@ import TodoHeader from './components/TodoHeader.vue';
   padding: 0;
   box-sizing: border-box;
 }
-
-.container {
-  max-width: 1100px;
-  margin: 0 auto;
+body {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position-y: -10vw;
+  background-position-x: 100%;
+  background-image: url("./assets/background-green.svg");
 }
 </style>

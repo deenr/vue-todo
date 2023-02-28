@@ -60,60 +60,39 @@ const todosCompleted = computed(() => {
 </script>
 
 <template>
-  <main>
-    <h1
-      class="font-bold text-xl object-contain text-teal-500 py-1 px-2 rounded"
-    >
-      Create todo
-    </h1>
-    <TodoCreator @create-todo="createTodo"></TodoCreator>
-    <ul v-if="todoList.length > 0" class="todo-list">
-      <TodoItem
-        v-for="(todo, index) in todoList"
-        :todo="todo"
-        :index="index"
-        @toggle-complete="toggleTodoComplete"
-        @toggle-editing="toggleTodoEditing"
-        @update-todo="updateTodo"
-        @delete-todo="deleteTodo"
-      />
-    </ul>
-    <p v-else class="no-todos-msg">
-      <Icon icon="mdi:emoticon-sad-outline" />
-      <span>You have no todo's to complete.</span>
-    </p>
-    <p v-if="todosCompleted && todoList.length > 0" class="no-todos-msg">
-      <Icon icon="mdi:party-popper" />
-      <span>All todo's are completed.</span>
-    </p>
+  <main class="flex items-center justify-center">
+    <div class="w-96">
+      <h1
+        class="font-bold text-2xl text-center object-contain text-white pt-[10vw] pb-4"
+      >
+        Create todo
+      </h1>
+      <TodoCreator @create-todo="createTodo"></TodoCreator>
+      <ul v-if="todoList.length > 0" class="mt-2">
+        <TodoItem
+          class="border-dashed border-b-2 border-white"
+          v-for="(todo, index) in todoList"
+          :todo="todo"
+          :index="index"
+          @toggle-complete="toggleTodoComplete"
+          @toggle-editing="toggleTodoEditing"
+          @update-todo="updateTodo"
+          @delete-todo="deleteTodo"
+        />
+      </ul>
+      <p v-else class="no-todos-msg">
+        <Icon icon="mdi:emoticon-sad-outline" />
+        <span>You have no todo's to complete.</span>
+      </p>
+      <p
+        v-if="todosCompleted && todoList.length > 0"
+        class="flex items-center justify-center mt-4"
+      >
+        <Icon class="text-white text-5xl" icon="mdi:party-popper" />
+        <span class="text-white pl-2">All todo's are completed.</span>
+      </p>
+    </div>
   </main>
 </template>
 
-<style lang="scss" scoped>
-main {
-  display: flex;
-  flex-direction: column;
-  max-width: 500px;
-  width: 100%;
-  margin: 0 auto;
-  padding: 40px 16px;
-  h1 {
-    margin-bottom: 16px;
-    text-align: center;
-  }
-  .todo-list {
-    display: flex;
-    flex-direction: column;
-    list-style: none;
-    margin-top: 24px;
-    gap: 20px;
-  }
-  .todos-msg {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-    margin-top: 24px;
-  }
-}
-</style>
+<style lang="scss" scoped></style>

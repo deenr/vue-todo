@@ -1,13 +1,16 @@
 <template>
-  <div class="flex items-center border-b border-teal-500 py-2">
+  <div class="flex items-center border-b border-white py-2">
     <input
-      class="appearance-none bg-transparent border-none w-full text-gray-700 mr-3 py-1 px-2 leading-tight focus:outline-none"
+      class="appearance-none bg-transparent border-none w-full text-white placeholder-white/50 mr-3 py-1 px-2 leading-tight focus:outline-none"
       type="text"
+      placeholder="Create your new task here"
       v-model="todoState.todo"
     />
     <TodoButton @click="createTodo()" />
   </div>
-  <p class="err-msg" v-if="todoState.invalid">{{ todoState.errMsg }}</p>
+  <p class="text-teal-500 text-sm" v-if="todoState.invalid">
+    {{ todoState.errMsg }}
+  </p>
 </template>
 
 <script setup>

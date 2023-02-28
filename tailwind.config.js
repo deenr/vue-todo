@@ -54,6 +54,8 @@ module.exports = {
       "gradient-to-l": "linear-gradient(to left, var(--tw-gradient-stops))",
       "gradient-to-tl":
         "linear-gradient(to top left, var(--tw-gradient-stops))",
+      "background":
+        "background-image: url('./src/assets/background.svg')"
     },
     backgroundOpacity: ({ theme }) => theme("opacity"),
     backgroundPosition: {
